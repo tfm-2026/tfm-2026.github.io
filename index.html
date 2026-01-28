@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG" />
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG" />
+  <meta property="og:url" content="URL OF THE WEBSITE" />
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Temporal Flow Matching for Motion Enhanced Video Generation</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Temporal-aware Flow Matching for Video Generation with Temporally Coherent Motion</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <!-- <span class="author-block"> -->
+              <p>Anonymous Authors</p></span>
+
+            </div>
+          </div>
+        </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Despite rapid advances in text-to-video generation, state-of-the-art generative models still suffer from producing temporally incoherent and unrealistic motion for videos. The key weakness of existing works is that they commonly treat videos as frame sequences and directly adopt Flow Matching objectives, which are originally designed for images. This practice fails to explicitly model motion priors or temporal dependencies, resulting in suboptimal dynamics that may appear incoherent and unrealistic. To solve this problem, we propose Temporal-aware Flow Matching (TFM), a novel training paradigm that embeds inter-frame constraints into the flow objective, leading to temporally coherent motion modeling in video generation. More specifically, the proposed TFM enforces temporal correlations across frames while retaining the desirable properties of Flow Matching, and further introduces a residual-type loss that aligns naturally with this new flow. We theoretically prove that models trained with TFM are able to exhibit remarkably enhanced temporal perception ability and better capture motion dynamics. Notably, TFM imposes no additional cost during inference and is applicable to any model using Flow Matching. Extensive experiments demonstrate that our TFM can significantly improve motion realism across diverse motion types. Generated videos are presented at https://tfm-2026.github.io.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-small is">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="container">
+          <h2 class="title is-3">Qualitative Comparisons</h2>
+
+          
+          <table class="center">
+            <tbody>
+              <tr>
+                <td width="23%" style="text-align:center;"><b>CogVideoX1.5-5B</b></td>
+                <td width="2%"></td>
+                <td width="23%" style="text-align:center;"><b>HunyuanVideo-13B</b></td>
+                <td width="2%"></td>
+                <td width="23%" style="text-align:center;"><b>Wan2.1-T2V-14B</b></td>
+                <td width="2"></td>
+                <td width="23%" style="text-align:center;"><b>Temporal Flow Matching (Ours)</b></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><video src="qualitative/cogvideo/01.mp4" controls=""></video>
+                </td>
+                <td width="2%"></td>
+                <td width="23%" style="text-align:center;"><video src="qualitative/hunyuan/01.mp4" controls=""></video>
+                </td>
+                <td width="2%"></td>
+                <td width="23%" style="text-align:center;"><video src="qualitative/wan/01.mp4" controls=""></video>
+                </td>
+                <td width="2"></td>
+                <td width="23%" style="text-align:center;"><video src="qualitative/tfm/01.mp4" controls=""></video>
+                </td>
+              </tr>
+              </tr>
+            </tbody>
+          </table>
+          <p align="center"><b>
+                A chef flips a cast-iron skillet, sautéed mushrooms sailing and tumbling in glossy butter before settling back.
+          </b></p>
+          </br></br></br>
+
+          <table class="center">
+            <tbody>
+              <tr>
+                <td width="23%" style="text-align:center;"><b>CogVideoX1.5-5B</b></td>
+                <td width="2%"></td>
+                <td width="23%" style="text-align:center;"><b>HunyuanVideo-13B</b></td>
+                <td width="2%"></td>
+                <td width="23%" style="text-align:center;"><b>Wan2.1-T2V-14B</b></td>
+                <td width="2"></td>
+                <td width="23%" style="text-align:center;"><b>Temporal Flow Matching (Ours)</b></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><video src="qualitative/cogvideo/02.mp4" controls=""></video>
+                </td>
+                <td width="2%"></td>
+                <td width="23%" style="text-align:center;"><video src="qualitative/hunyuan/02.mp4" controls=""></video>
+                </td>
+                <td width="2%"></td>
+                <td width="23%" style="text-align:center;"><video src="qualitative/wan/02.mp4" controls=""></video>
+                </td>
+                <td width="2"></td>
+                <td width="23%" style="text-align:center;"><video src="qualitative/tfm/02.mp4" controls=""></video>
+                </td>
+              </tr>
+              </tr>
+            </tbody>
+          </table>
+          <p align="center"><b>
+            A sprinter explodes from orange-marked blocks, pumping athletic arms at sunrise across a dewy stadium.
+          </b></p>
+          </br></br></br>
+
+          <table class="center">
+            <tbody>
+              <tr>
+                <td width="23%" style="text-align:center;"><b>CogVideoX1.5-5B</b></td>
+                <td width="2%"></td>
+                <td width="23%" style="text-align:center;"><b>HunyuanVideo-13B</b></td>
+                <td width="2%"></td>
+                <td width="23%" style="text-align:center;"><b>Wan2.1-T2V-14B</b></td>
+                <td width="2"></td>
+                <td width="23%" style="text-align:center;"><b>Temporal Flow Matching (Ours)</b></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><video src="qualitative/cogvideo/03.mp4" controls=""></video>
+                </td>
+                <td width="2%"></td>
+                <td width="23%" style="text-align:center;"><video src="qualitative/hunyuan/03.mp4" controls=""></video>
+                </td>
+                <td width="2%"></td>
+                <td width="23%" style="text-align:center;"><video src="qualitative/wan/03.mp4" controls=""></video>
+                </td>
+                <td width="2"></td>
+                <td width="23%" style="text-align:center;"><video src="qualitative/tfm/03.mp4" controls=""></video>
+                </td>
+              </tr>
+              </tr>
+            </tbody>
+          </table>
+          <p align="center"><b>
+            A renowned sushi chef slices a roll with a single, precise motion.
+          </b></p>
+          </br></br></br>
+
+          <table class="center">
+            <tbody>
+              <tr>
+                <td width="23%" style="text-align:center;"><b>CogVideoX1.5-5B</b></td>
+                <td width="2%"></td>
+                <td width="23%" style="text-align:center;"><b>HunyuanVideo-13B</b></td>
+                <td width="2%"></td>
+                <td width="23%" style="text-align:center;"><b>Wan2.1-T2V-14B</b></td>
+                <td width="2"></td>
+                <td width="23%" style="text-align:center;"><b>Temporal Flow Matching (Ours)</b></td>
+              </tr>
+              <tr>
+                <td width="23%" style="text-align:center;"><video src="qualitative/cogvideo/04.mp4" controls=""></video>
+                </td>
+                <td width="2%"></td>
+                <td width="23%" style="text-align:center;"><video src="qualitative/hunyuan/04.mp4" controls=""></video>
+                </td>
+                <td width="2%"></td>
+                <td width="23%" style="text-align:center;"><video src="qualitative/wan/04.mp4" controls=""></video>
+                </td>
+                <td width="2"></td>
+                <td width="23%" style="text-align:center;"><video src="qualitative/tfm/04.mp4" controls=""></video>
+                </td>
+              </tr>
+              </tr>
+            </tbody>
+          </table>
+          <p align="center"><b>
+            A figure skater leaps into the air, his skates gliding across the ice.
+          </b></p>
+        </br></br></br>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </br></br></br>
+
+  <section class="hero is-small is-light">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="container">
+          <h2 class="title is-3">Generated Samples</h2>
+
+          <table class="center">
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td width="32%" style="text-align:center;"><video src="samples/01-runner.mp4" controls=""></video></td>
+                <td width="2%"></td>
+                <td width="32%" style="text-align:center;"><video src="samples/02-gymnast.mp4" controls=""></video>
+                <td width="2%"></td>
+                <td width="32%" style="text-align:center;"><video src="samples/03-shake.mp4" controls=""></video>
+                </td>
+              </tr>
+              <tr>
+                <td width="32%" style="text-align:center;"><b>A close-up of a runner's legs as they dash through a rainstorm, their shoes splashing through puddles as they push forward with determination</b>.</td>
+                <td width="2%"></td>
+                <td width="32%" style="text-align:center;"><b>A gymnast balancing on a balance beam, body rotating in a tight, precise arc</b>.</td>
+                <td width="2%"></td>
+                <td width="32%" style="text-align:center;"><b>A golden retriever shakes itself dry after jumping into a backyard pool, droplets spraying out like bright, shimmering stars</b>.</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          </br></br></br>
+
+          <table class="center">
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td width="32%" style="text-align:center;"><video src="samples/04-cartwheel.mp4" controls=""></video></td>
+                <td width="2%"></td>
+                <td width="32%" style="text-align:center;"><video src="samples/05-skateboarder.mp4" controls=""></video>
+                <td width="2%"></td>
+                <td width="32%" style="text-align:center;"><video src="samples/06-robot.mp4" controls=""></video>
+                </td>
+              </tr>
+              <tr>
+                <td width="32%" style="text-align:center;"><b>A young man performing a cartwheel on a gray surface. He is dressed in orange pants, a black t-shirt</b>.</td>
+                <td width="2%"></td>
+                <td width="32%" style="text-align:center;"><b>A skateboarder launches off a ramp and executes a complex mid-air trick before landing</b>.</td>
+                <td width="2%"></td>
+                <td width="32%" style="text-align:center;"><b>A robot arm delicately moves colored chess pieces in a grandmasters’ match</b>.</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          </br></br></br>
+
+          <table class="center">
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td width="32%" style="text-align:center;"><video src="samples/07-dog.mp4" controls=""></video></td>
+                <td width="2%"></td>
+                <td width="32%" style="text-align:center;"><video src="samples/08-jump.mp4" controls=""></video>
+                <td width="2%"></td>
+                <td width="32%" style="text-align:center;"><video src="samples/09-soccer.mp4" controls=""></video>
+                </td>
+              </tr>
+              <tr>
+                <td width="32%" style="text-align:center;"><b>A dog leaps into a pile of autumn leaves on a park path, scattering golden and red foliage high into the air</b>.</td>
+                <td width="2%"></td>
+                <td width="32%" style="text-align:center;"><b>A man is jumping rope on the sandy beachg</b>.</td>
+                <td width="2%"></td>
+                <td width="32%" style="text-align:center;"><b>A soccer player skillfully juggles a ball with their feet</b>.</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+          </br></br></br>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+</br></br></br>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                target="_blank">Academic Project Page Template</a> which was adopted from the <a
+                href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+              You are free to borrow the of this website, we just ask that you link back to this page in the footer.
+              <br> This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Statcounter tracking code -->
+
+  <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+  <!-- End of Statcounter Code -->
+
+</body>
+
+</html>
